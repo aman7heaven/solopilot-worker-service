@@ -1,0 +1,14 @@
+spring:
+ application:
+  name: worker-service
+ rabbitmq:
+  host: ${host}
+  port: 5672
+  username: ${username}
+  password: ${password}
+
+
+app:
+ rabbitmq:
+  queues:
+   email: notification.queue.email
