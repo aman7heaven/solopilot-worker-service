@@ -7,6 +7,8 @@ spring:
   username: ${username}
   password: ${password}
 
+server:
+ port: 8081
 
 app:
  rabbitmq:
