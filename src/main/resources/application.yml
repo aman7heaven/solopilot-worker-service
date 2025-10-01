@@ -2,10 +2,11 @@ spring:
  application:
   name: worker-service
  rabbitmq:
-  host: ${host}
+  host: ${HOST}
   port: 5672
-  username: ${username}
-  password: ${password}
+  username: ${USERNAME}
+  password: ${PASSWORD}
+  virtual-host: /
 
 server:
  port: 8081

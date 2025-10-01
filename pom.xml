@@ -8,7 +8,7 @@
 		<version>3.5.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.autopilot</groupId>
+	<groupId>com.portfolio</groupId>
 	<artifactId>worker-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>worker-service</name>
