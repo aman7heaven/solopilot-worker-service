@@ -2,11 +2,10 @@ spring:
  application:
   name: worker-service
  rabbitmq:
-  host: ${HOST}
+  host: ${DOMAIN}
   port: 5672
   username: ${USERNAME}
   password: ${PASSWORD}
-  virtual-host: /
 
 server:
  port: 8081
@@ -15,3 +14,17 @@ app:
  rabbitmq:
   queues:
    email: notification.queue.email
+
+mailersend:
+ api:
+  key: ${MAILERSEND_API_KEY}
+ template:
+  id: ${MAILERSEND_TEMPLATE_ID}
+
+ from:
+  email: ${MAILERSEND_FROM_EMAIL}
+  name: ${MAILERSEND_FROM_NAME}
+
+ to:
+  email: ${MAILERSEND_TO_EMAIL}
+  name: ${MAILERSEND_TO_NAME:Portfolio Admin}
