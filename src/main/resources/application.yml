@@ -2,10 +2,22 @@ spring:
  application:
   name: worker-service
  rabbitmq:
-  host: ${DOMAIN}
-  port: 5672
-  username: ${USERNAME}
-  password: ${PASSWORD}
+  host: ${QUEUE_DOMAIN}
+  port: ${QUEUE_PORT}
+  username: ${RABBITMQ_USERNAME}
+  password: ${RABBITMQ_PASSWORD}
+ mail:
+  host: smtp.gmail.com
+  port: 587
+  username: ${SPRING_MAIL_USERNAME}
+  password: ${SPRING_MAIL_PASSWORD}
+  properties:
+    mail:
+      smtp:
+        auth: true
+        starttls:
+          enable: true
+          required: true
 
 server:
  port: 8081
@@ -14,17 +26,17 @@ app:
  rabbitmq:
   queues:
    email: notification.queue.email
+ mail:
+   from: ${APP_MAIL_FROM}
+   from-name: "SoloPilot"
+   to: ${APP_MAIL_TO}
+   to-name: ${APP_MAIL_TO_NAME}
 
-mailersend:
- api:
-  key: ${MAILERSEND_API_KEY}
- template:
-  id: ${MAILERSEND_TEMPLATE_ID}
-
- from:
-  email: ${MAILERSEND_FROM_EMAIL}
-  name: ${MAILERSEND_FROM_NAME}
-
- to:
-  email: ${MAILERSEND_TO_EMAIL}
-  name: ${MAILERSEND_TO_NAME:Portfolio Admin}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: never
