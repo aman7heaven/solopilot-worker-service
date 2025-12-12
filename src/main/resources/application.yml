@@ -2,10 +2,7 @@ spring:
  application:
   name: worker-service
  rabbitmq:
-  host: ${QUEUE_DOMAIN}
-  port: ${QUEUE_PORT}
-  username: ${RABBITMQ_USERNAME}
-  password: ${RABBITMQ_PASSWORD}
+   addresses: ${QUEUE_URL}
  mail:
   host: smtp.gmail.com
   port: 587
