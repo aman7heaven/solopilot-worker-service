@@ -1,33 +1,35 @@
 spring:
- application:
-  name: worker-service
- rabbitmq:
-   addresses: ${QUEUE_URL}
- mail:
-  host: smtp.gmail.com
-  port: 587
-  username: ${SPRING_MAIL_USERNAME}
-  password: ${SPRING_MAIL_PASSWORD}
-  properties:
-    mail:
-      smtp:
-        auth: true
-        starttls:
-          enable: true
-          required: true
+  application:
+    name: worker-service
+  rabbitmq:
+    addresses: ${QUEUE_URL}
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${SPRING_MAIL_USERNAME}
+    password: ${SPRING_MAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
 
 server:
- port: 8081
+  port: 8081
 
 app:
- rabbitmq:
-  queues:
-   email: notification.queue.email
- mail:
-   from: ${APP_MAIL_FROM}
-   from-name: "SoloPilot"
-   to: ${APP_MAIL_TO}
-   to-name: ${APP_MAIL_TO_NAME}
+  rabbitmq:
+    queues:
+      email: notification.queue.email
+  mail:
+    from: ${APP_MAIL_FROM}
+    from-name: "SoloPilot"
+    to: ${APP_MAIL_TO}
+    to-name: ${APP_MAIL_TO_NAME}
+  cors:
+    allowed-origins: ${ALLOWED_ORIGINS}
 
 management:
   endpoints:
